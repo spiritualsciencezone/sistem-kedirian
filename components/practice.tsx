@@ -1,19 +1,19 @@
 const steps = [
   {
-    title: 'Mengheningkan',
-    body: 'Menurunkan kebisingan sebelum melihat. Tanpa hening, yang tampak hanyalah gema kebiasaan.',
+    title: 'Menempatkan',
+    body: 'Menyadari konteks tempat Diri berada. Laku dimulai dengan mengenali hubungan antara KAWUTOHA sebagai Divine Context dan KAINODIHAKU sebagai Human Domain, sebelum menentukan apa yang harus dilakukan.',
   },
   {
-    title: 'Mengenali',
-    body: 'Menamai apa yang muncul — rasa, dorongan, ketakutan — tanpa menghakimi atau membenarkan.',
+    title: 'Menyaksikan',
+    body: 'Mengamati apa yang berlangsung dalam LALO sebagai Internal Field — pikiran melalui KOLALO dan emosi melalui KAKOLALO — tanpa segera menganggap setiap gerakan yang muncul sebagai Diri.',
   },
   {
-    title: 'Melintasi',
-    body: 'Menjalani apa yang sudah dikenali. Pemahaman menjadi nyata hanya setelah dilalui.',
+    title: 'Membedakan',
+    body: 'Membedakan Diri dari apa yang hadir di dalam pengalaman: pikiran, emosi, dorongan, ketakutan, ingatan, maupun pengaruh GHULU sebagai External Content. Yang muncul dalam diri tidak selalu merupakan Diri itu sendiri.',
   },
   {
-    title: 'Kembali',
-    body: 'Membawa hasil perjalanan ke keseharian, lalu memulai lagi dari hening yang lebih dalam.',
+    title: 'Menghadirkan',
+    body: 'Membawa kesadaran yang telah dikenali ke dalam kehidupan nyata. Laku menjadi nyata ketika pemahaman hadir dalam cara berada, memilih, bertindak, dan berelasi di dalam KAINODIHAKU.',
   },
 ]
 
@@ -26,11 +26,13 @@ export function Practice() {
             Laku
           </p>
           <h2 className="mt-5 font-serif text-4xl leading-tight font-light text-balance sm:text-5xl">
-            Kesadaran dilatih, bukan dihafal
+            Kesadaran dijalani, bukan sekadar diketahui
           </h2>
           <p className="mt-6 leading-relaxed text-muted-foreground text-pretty">
-            Sistem Kedirian bekerja sebagai lingkaran, bukan garis lurus. Setiap
-            putaran mengembalikan kita ke tempat yang sama dengan mata yang berbeda.
+            Laku adalah cara Diri menjalani kesadaran di dalam keseluruhan
+            Sistem Kedirian. Ia bergerak dari pengenalan konteks, penyaksian
+            medan internal, pembedaan antara Diri dan isi pengalaman, hingga
+            menghadirkan kesadaran itu dalam kehidupan nyata.
           </p>
         </header>
 
