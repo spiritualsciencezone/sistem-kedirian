@@ -1,0 +1,85 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-serif: var(--font-display), Georgia, serif;
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+}
+
+:root {
+  color-scheme: dark;
+
+  /* ink */
+  --background: oklch(0.16 0.012 264);
+  --foreground: oklch(0.93 0.012 85);
+
+  --card: oklch(0.2 0.014 264);
+  --card-foreground: oklch(0.93 0.012 85);
+  --popover: oklch(0.2 0.014 264);
+  --popover-foreground: oklch(0.93 0.012 85);
+
+  /* brass */
+  --primary: oklch(0.78 0.098 78);
+  --primary-foreground: oklch(0.17 0.014 264);
+
+  --secondary: oklch(0.24 0.014 264);
+  --secondary-foreground: oklch(0.93 0.012 85);
+
+  --muted: oklch(0.22 0.012 264);
+  --muted-foreground: oklch(0.68 0.016 82);
+
+  --accent: oklch(0.24 0.016 264);
+  --accent-foreground: oklch(0.86 0.07 80);
+
+  --destructive: oklch(0.6 0.2 25);
+
+  --border: oklch(0.3 0.014 264);
+  --input: oklch(0.3 0.014 264);
+  --ring: oklch(0.78 0.098 78);
+
+  --radius: 0.25rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+  ::selection {
+    background: var(--primary);
+    color: var(--primary-foreground);
+  }
+}
+
+@utility tracking-hairline {
+  letter-spacing: 0.32em;
+}
