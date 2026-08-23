@@ -8,7 +8,7 @@ import { entries, editorialNote } from '@/lib/kedirian'
 export const metadata: Metadata = {
   title: 'Sistem Kedirian — Ikhtisar Istilah',
   description:
-    'Ikhtisar kerangka konseptual Sistem Kedirian beserta definisi istilah KAWUTOHA, KAINODIHAKU, LALO, KOLALO, KAKOLALO, dan GHULU.',
+    'Sistem Kedirian adalah sebuah kerangka untuk memahami bagaimana Diri mengalami, memberi makna, dan memanifestasikan realitas melalui suatu sistem konteks. Titik berangkatnya adalah pembedaan antara Diri dan pengalaman yang dialami oleh Diri. Diri bukan sekadar tubuh, pikiran, emosi, peran sosial, atau keadaan hidup; semua itu merupakan bagian dari pengalaman yang muncul dalam suatu struktur kedirian. Karena itu, Sistem Kedirian tidak terutama bertanya “Apa yang terjadi pada saya?”, tetapi lebih mendasar: “Dari konteks aku yang mana pengalaman ini sedang dipahami dan dimaknai?”',
 }
 
 const structure = [
