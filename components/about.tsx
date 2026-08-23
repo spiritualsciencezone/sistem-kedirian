@@ -11,7 +11,7 @@ export function About() {
           </p>
 
           <h2 className="mt-8 font-serif text-3xl leading-snug font-light text-balance sm:text-4xl">
-            Sistem Kedirian adalah sebuah kerangka konseptual
+            Sistem Kedirian adalah sebuah kerangka untuk memahami bagaimana Diri mengalami, memberi makna, dan memanifestasikan realitas melalui suatu sistem konteks. Titik berangkatnya adalah pembedaan antara Diri dan pengalaman yang dialami oleh Diri. Diri bukan sekadar tubuh, pikiran, emosi, peran sosial, atau keadaan hidup; semua itu merupakan bagian dari pengalaman yang muncul dalam suatu struktur kedirian. Karena itu, Sistem Kedirian tidak terutama bertanya “Apa yang terjadi pada saya?”, tetapi lebih mendasar: “Dari konteks aku yang mana pengalaman ini sedang dipahami dan dimaknai?”
           </h2>
 
           <p className="mt-10 leading-relaxed text-muted-foreground text-pretty">
