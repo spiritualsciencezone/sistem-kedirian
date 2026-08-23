@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { editorialNote } from '@/lib/kedirian'
 
@@ -28,6 +29,16 @@ export function About() {
           terjadi pada saya?”, tetapi lebih mendasar: “Dari konteks aku yang mana
           pengalaman ini sedang dipahami dan dimaknai?”
           </p>
+
+          <div className="mt-12 overflow-hidden border border-border/60">
+          <Image
+          src="/images/struktur-sistem-kedirian.png"
+          alt="Infografis Struktur Sistem Kedirian"
+          width={1536}
+          height={2048}
+          className="h-auto w-full"
+          />
+          </div>
 
           <p className="mt-10 leading-relaxed text-muted-foreground text-pretty">
             Istilah KAWUTOHA, KAINODIHAKU, LALO, KOLALO, KAKOLALO, dan GHULU adalah
