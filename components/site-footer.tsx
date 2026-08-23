@@ -9,7 +9,7 @@ export function SiteFooter() {
         <nav aria-label="Navigasi footer">
           <ul className="flex flex-wrap gap-x-8 gap-y-3 text-[0.65rem] tracking-hairline uppercase text-muted-foreground">
             <li>
-              <a href="#pilar" className="transition-colors hover:text-primary">
+              <a href="#istilah" className="transition-colors hover:text-primary">
                 Pilar
               </a>
             </li>
