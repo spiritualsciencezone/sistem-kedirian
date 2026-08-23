@@ -19,7 +19,7 @@ export function SiteFooter() {
               </a>
             </li>
             <li>
-              <a href="#/tentang" className="transition-colors hover:text-primary">
+              <a href="/#tentang" className="transition-colors hover:text-primary">
                 Tentang
               </a>
             </li>
