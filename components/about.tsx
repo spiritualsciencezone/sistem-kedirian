@@ -32,7 +32,7 @@ export function About() {
 
           <div className="mt-12 overflow-hidden border border-border/60">
           <Image
-          src="/public/images/struktur-sistem-kedirian.png"
+          src="/images/Struktur-Sistem-Kedirian.png"
           alt="Infografis Struktur Sistem Kedirian"
           width={1536}
           height={2048}
