@@ -8,7 +8,7 @@ import { entries, editorialNote } from '@/lib/kedirian'
 export const metadata: Metadata = {
   title: 'Sistem Kedirian — Ikhtisar Istilah',
   description:
-    'Sistem Kedirian adalah sebuah kerangka untuk memahami bagaimana Diri mengalami, memberi makna, dan memanifestasikan realitas melalui suatu sistem konteks. Titik berangkatnya adalah pembedaan antara Diri dan pengalaman yang dialami oleh Diri. Diri bukan sekadar tubuh, pikiran, emosi, peran sosial, atau keadaan hidup; semua itu merupakan bagian dari pengalaman yang muncul dalam suatu struktur kedirian. Karena itu, Sistem Kedirian tidak terutama bertanya “Apa yang terjadi pada saya?”, tetapi lebih mendasar: “Dari konteks aku yang mana pengalaman ini sedang dipahami dan dimaknai?”',
+    'Sistem Kedirian adalah kerangka konseptual untuk memahami bagaimana Diri mengalami, memberi makna, dan memanifestasikan realitas melalui konteks kedirian. Kerangka ini membedakan Diri dari pengalaman yang dialami, termasuk tubuh, pikiran, emosi, peran sosial, dan keadaan hidup.',
 }
 
 const structure = [
@@ -52,8 +52,10 @@ export default function SistemKedirianPage() {
               Sistem Kedirian
             </h1>
             <p className="mt-8 max-w-2xl font-serif text-xl leading-relaxed font-light text-muted-foreground text-pretty sm:text-2xl">
-              Kerangka konseptual yang menggunakan enam istilah khusus. Setiap istilah
-              memiliki definisi tertentu dan namanya tidak diterjemahkan.
+              Sistem Kedirian adalah kerangka untuk memahami bagaimana Diri mengalami,
+              memberi makna, dan memanifestasikan realitas melalui suatu sistem konteks.
+              Titik berangkatnya adalah pembedaan antara Diri dan pengalaman yang dialami
+              oleh Diri.
             </p>
           </div>
         </header>
