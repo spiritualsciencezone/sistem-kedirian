@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
+import { getAllArticles } from '@/lib/articles'
 
 export const metadata: Metadata = {
   title: 'Artikel | Sistem Kedirian',
@@ -8,22 +10,9 @@ export const metadata: Metadata = {
     'Kumpulan artikel mengenai Sistem Kedirian, kesadaran, pengalaman manusia, dan pengembangan pemahaman tentang Diri.',
 }
 
-const articles = [
-  {
-    title: 'Memahami Sistem Kedirian',
-    excerpt:
-      'Pengantar mengenai Sistem Kedirian sebagai kerangka untuk memahami hubungan antara Diri, konteks, pengalaman, dan realitas.',
-    category: 'Sistem Kedirian',
-  },
-  {
-    title: 'Diri dan Pengalaman',
-    excerpt:
-      'Mengamati perbedaan antara Diri sebagai yang mengalami dan berbagai pengalaman yang muncul dalam kehidupan.',
-    category: 'Kesadaran',
-  },
-]
-
 export default function ArtikelPage() {
+  const articles = getAllArticles()
+
   return (
     <>
       <SiteHeader />
@@ -70,7 +59,7 @@ export default function ArtikelPage() {
             <div className="mt-12 border-t border-border/60">
               {articles.map((article) => (
                 <article
-                  key={article.title}
+                  key={article.slug}
                   className="border-b border-border/60 py-8 sm:py-10"
                 >
                   <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between sm:gap-10">
@@ -88,9 +77,12 @@ export default function ArtikelPage() {
                       </p>
                     </div>
 
-                    <span className="shrink-0 text-[0.6rem] tracking-hairline uppercase text-muted-foreground">
-                      Segera
-                    </span>
+                    <Link
+                      href={`/artikel/${article.slug}`}
+                      className="shrink-0 text-[0.6rem] tracking-hairline uppercase text-muted-foreground transition-colors hover:text-primary"
+                    >
+                      Baca Artikel →
+                    </Link>
                   </div>
                 </article>
               ))}
