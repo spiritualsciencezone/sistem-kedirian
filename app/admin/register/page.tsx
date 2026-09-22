@@ -28,7 +28,14 @@ export default function AdminRegisterPage() {
 
     setLoading(true)
     const supabase = createClient()
-    const { data, error: signUpError } = await supabase.auth.signUp({ email, password })
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') || window.location.origin
+    const { data, error: signUpError } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        emailRedirectTo: `${siteUrl}/auth/callback?next=/admin/login`,
+      },
+    })
 
     if (signUpError) {
       setError(signUpError.message.toLowerCase().includes('already') ? 'Email tersebut sudah terdaftar.' : 'Pendaftaran gagal. Periksa kembali data Anda.')
