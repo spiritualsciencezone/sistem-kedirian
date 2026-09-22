@@ -1,0 +1,3 @@
+import { notFound } from 'next/navigation'
+import { AdminContentForm } from '@/components/admin-content-form'
+export default async function NewContentPage({ params }: { params: Promise<{ section: string }> }) { const { section } = await params; const type = section === 'artikel' ? 'article' : section === 'studi-kasus' ? 'case_study' : null; if (!type) notFound(); return <main className="min-h-screen px-6 py-12"><div className="mx-auto max-w-4xl"><p className="text-xs uppercase tracking-widest text-primary">Konten baru</p><h1 className="mt-4 font-serif text-5xl font-light">{type === 'article' ? 'Artikel baru' : 'Studi kasus baru'}</h1><div className="mt-12"><AdminContentForm type={type} /></div></div></main> }

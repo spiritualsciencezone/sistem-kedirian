@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
-import { getAllArticles } from '@/lib/articles'
+import { getPublishedContent } from '@/lib/content'
 
 export const metadata: Metadata = {
   title: 'Artikel | Sistem Kedirian',
@@ -10,8 +10,8 @@ export const metadata: Metadata = {
     'Kumpulan artikel mengenai Sistem Kedirian, kesadaran, pengalaman manusia, dan pengembangan pemahaman tentang Diri.',
 }
 
-export default function ArtikelPage() {
-  const articles = getAllArticles()
+export default async function ArtikelPage() {
+  const articles = await getPublishedContent('article')
 
   return (
     <>

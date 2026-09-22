@@ -1,0 +1,5 @@
+import { notFound, redirect } from 'next/navigation'
+import { AdminContentForm } from '@/components/admin-content-form'
+import { deleteContent } from '@/app/admin/actions'
+import { getAdminContentById, requireAdmin } from '@/lib/content'
+export default async function EditContentPage({ params }: { params: Promise<{ section: string; id: string }> }) { if (!await requireAdmin()) redirect('/admin/login'); const { section, id } = await params; const item = await getAdminContentById(id); if (!item || (section === 'artikel' ? item.type !== 'article' : item.type !== 'case_study')) notFound(); return <main className="min-h-screen px-6 py-12"><div className="mx-auto max-w-4xl"><p className="text-xs uppercase tracking-widest text-primary">Edit konten</p><h1 className="mt-4 font-serif text-5xl font-light">{item.title}</h1><div className="mt-12"><AdminContentForm type={item.type} item={item} /></div><form action={deleteContent} className="mt-12 border-t border-border pt-6"><input type="hidden" name="id" value={item.id} /><button className="text-xs uppercase tracking-widest text-red-400">Hapus konten</button></form></div></main> }

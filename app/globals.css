@@ -67,6 +67,8 @@
   --radius: 0.25rem;
 }
 
+.field { @apply mt-2 w-full border border-border bg-transparent px-4 py-3 outline-none focus:border-primary; }
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
