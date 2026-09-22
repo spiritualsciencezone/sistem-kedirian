@@ -21,6 +21,7 @@ const links = [
 
   { label: 'Artikel', href: '/artikel' },
   { label: 'Studi Kasus', href: '/studi-kasus' },
+  { label: 'Admin', href: '/admin/login' },
 ]
 
 export function SiteHeader() {
