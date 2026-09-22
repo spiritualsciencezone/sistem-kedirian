@@ -4,15 +4,16 @@ import { NextRequest, NextResponse } from 'next/server'
 export async function GET(request: NextRequest) {
   const { searchParams, origin } = request.nextUrl
   const code = searchParams.get('code')
-  const next = searchParams.get('next') ?? '/'
+  const requestedNext = searchParams.get('next')
+  const next = requestedNext?.startsWith('/') && !requestedNext.startsWith('//') ? requestedNext : '/admin/login'
 
   if (code) {
     const supabase = await createClient()
     const { error } = await supabase.auth.exchangeCodeForSession(code)
     if (!error) {
-      return NextResponse.redirect(`${origin}${next}`)
+      return NextResponse.redirect(new URL(next, origin))
     }
   }
 
-  return NextResponse.redirect(`${origin}/auth/error`)
+  return NextResponse.redirect(new URL('/auth/error', origin))
 }
