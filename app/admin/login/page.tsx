@@ -1,6 +1,7 @@
 'use client'
 
-import { FormEvent, useState } from 'react'
+import Link from 'next/link'
+import { FormEvent, useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 
@@ -10,6 +11,14 @@ export default function AdminLoginPage() {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
+  const [notice, setNotice] = useState('')
+
+  useEffect(() => {
+    if (new URLSearchParams(window.location.search).get('password-reset') === 'success') {
+      setNotice('Kata sandi berhasil diperbarui. Silakan masuk dengan kata sandi baru.')
+    }
+  }, [])
+
   async function submit(event: FormEvent) { event.preventDefault(); setLoading(true); setError(''); const { error } = await createClient().auth.signInWithPassword({ email, password }); if (error) { setError('Email atau kata sandi tidak valid.'); setLoading(false); return }; router.push('/admin') }
-  return <main className="min-h-screen bg-background px-6 py-20"><div className="mx-auto max-w-md"><p className="text-[0.65rem] uppercase tracking-hairline text-primary/80">Sistem Kedirian</p><h1 className="mt-5 font-serif text-5xl font-light">Admin masuk</h1><p className="mt-5 text-sm leading-relaxed text-muted-foreground">Kelola artikel dan studi kasus yang diterbitkan.</p><form onSubmit={submit} className="mt-10 space-y-5"><label className="block text-sm">Email<input required type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="mt-2 w-full border border-border bg-transparent px-4 py-3 outline-none focus:border-primary" /></label><label className="block text-sm">Kata sandi<input required type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="mt-2 w-full border border-border bg-transparent px-4 py-3 outline-none focus:border-primary" /></label>{error && <p role="alert" className="text-sm text-red-400">{error}</p>}<button disabled={loading} className="w-full bg-primary px-4 py-3 text-xs uppercase tracking-widest text-primary-foreground disabled:opacity-50">{loading ? 'Memeriksa…' : 'Masuk'}</button></form><p className="mt-6 text-sm leading-relaxed text-muted-foreground">Akses ini hanya tersedia bagi akun admin yang diizinkan.</p></div></main>
+  return <main className="min-h-screen bg-background px-6 py-20"><div className="mx-auto max-w-md"><p className="text-[0.65rem] uppercase tracking-hairline text-primary/80">Sistem Kedirian</p><h1 className="mt-5 font-serif text-5xl font-light">Admin masuk</h1><p className="mt-5 text-sm leading-relaxed text-muted-foreground">Kelola artikel dan studi kasus yang diterbitkan.</p>{notice && <p role="status" className="mt-6 text-sm leading-relaxed text-primary">{notice}</p>}<form onSubmit={submit} className="mt-10 space-y-5"><label className="block text-sm">Email<input required type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="mt-2 w-full border border-border bg-transparent px-4 py-3 outline-none focus:border-primary" /></label><label className="block text-sm">Kata sandi<input required type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="mt-2 w-full border border-border bg-transparent px-4 py-3 outline-none focus:border-primary" /></label>{error && <p role="alert" className="text-sm text-red-400">{error}</p>}<button disabled={loading} className="w-full bg-primary px-4 py-3 text-xs uppercase tracking-widest text-primary-foreground disabled:opacity-50">{loading ? 'Memeriksa…' : 'Masuk'}</button></form><Link href="/admin/forgot-password" className="mt-5 inline-block text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground">Lupa kata sandi?</Link><p className="mt-6 text-sm leading-relaxed text-muted-foreground">Akses ini hanya tersedia bagi akun admin yang diizinkan.</p></div></main>
 }
