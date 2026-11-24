@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { FormEvent, useState } from 'react'
+import { FormEvent, useRef, useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 
 export default function ForgotPasswordForm({ redirectTo }: { redirectTo: string }) {
@@ -9,9 +9,13 @@ export default function ForgotPasswordForm({ redirectTo }: { redirectTo: string 
   const [error, setError] = useState('')
   const [sent, setSent] = useState(false)
   const [loading, setLoading] = useState(false)
+  const requestInFlight = useRef(false)
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
+    if (requestInFlight.current) return
+
+    requestInFlight.current = true
     setError('')
     setSent(false)
     setLoading(true)
@@ -22,16 +26,21 @@ export default function ForgotPasswordForm({ redirectTo }: { redirectTo: string 
       })
 
       if (resetError) {
-        setError(resetError.status === 429
-          ? 'Terlalu banyak permintaan. Coba lagi beberapa saat lagi.'
-          : 'Tautan reset belum dapat dikirim. Periksa alamat email atau coba lagi nanti.')
+        const diagnostic = [
+          resetError.code ? `kode ${resetError.code}` : null,
+          `HTTP ${resetError.status ?? 'tidak diketahui'}`,
+          resetError.message,
+        ].filter(Boolean).join(' — ')
+        setError(`Supabase Auth: ${diagnostic}`)
         return
       }
 
       setSent(true)
-    } catch {
-      setError('Tautan reset belum dapat dikirim. Periksa koneksi Anda lalu coba lagi.')
+    } catch (caught) {
+      const message = caught instanceof Error ? caught.message : String(caught)
+      setError(`Kesalahan pemanggilan Supabase Auth: ${message}`)
     } finally {
+      requestInFlight.current = false
       setLoading(false)
     }
   }
