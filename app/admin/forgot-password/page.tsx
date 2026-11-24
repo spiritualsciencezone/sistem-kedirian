@@ -13,10 +13,7 @@ export default async function ForgotPasswordPage() {
   const host = forwardedHost ?? requestHeaders.get('host') ?? 'localhost:3000'
   const protocol = requestHeaders.get('x-forwarded-proto') ?? 'http'
   const currentOrigin = `${protocol}://${host}`
-  const productionUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
-  const productionCallback = productionUrl
-    ? `https://${productionUrl}/auth/callback`
-    : `${currentOrigin}/auth/callback`
+  const productionCallback = 'https://sistem-kedirian.vercel.app/auth/callback'
   const callbackUrl = process.env.VERCEL_ENV === 'production'
     ? productionCallback
     : process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ?? `${currentOrigin}/auth/callback`
